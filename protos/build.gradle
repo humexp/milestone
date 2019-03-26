@@ -1,0 +1,18 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.google.protobuf:protobuf-gradle-plugin:${protobufPluginVersion}"
+    }
+}
+
+apply from: file("${rootProject.projectDir}/gradle/protobuf.gradle")
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:${protobufVersion}"
+    }
+    generatedFilesBaseDir = "${projectDir}/generated"
+}
+

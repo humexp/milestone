@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package com.milestone.milestone.proto;
+
+option java_multiple_files = true;
+option java_outer_classname = "MilestoneProto";
+
+message Project {
+    string id = 1;
+    string name = 2;
+}
+
+message User {
+    string id = 1;
+    string name = 2;
+}
+
+message Task {
+    string id = 1;
+    string parentTaskId = 2;
+    string title = 3;
+    string body = 4;
+}
+
+message UserToProject {
+    string userId = 1;
+    string projectId = 2;
+}
+
+message UserToTask {
+    string userId = 1;
+    string taskId = 2;
+}
+
+message Effort {
+    string id = 1;
+    string taskId = 2;
+    int64 date = 3;
+    int32 effort = 4;
+}

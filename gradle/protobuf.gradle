@@ -1,0 +1,38 @@
+apply plugin: 'com.google.protobuf'
+apply plugin: 'java'
+
+ext {
+    generatedSourcesDir = "$projectDir/generated"
+    generatedMainDir = "$generatedSourcesDir/main/java"
+    generatedResourcesDir = "$generatedSourcesDir/main/resoures"
+}
+
+dependencies {
+    compile "com.google.protobuf:protobuf-java:${protobufVersion}"
+    compile "com.google.protobuf:protobuf-java-util:${protobufVersion}"
+}
+
+sourceSets {
+    generated {
+        compileClasspath = configurations.compile
+        runtimeClasspath = configurations.runtime
+        java.srcDirs = files(generatedMainDir)
+        resources.srcDirs = files(generatedResourcesDir)
+    }
+    
+    main {
+        compileClasspath += sourceSets.generated.output
+        runtimeClasspath += sourceSets.generated.output
+        java.srcDirs generatedMainDir
+    }
+}
+
+project.plugins.withType(IdeaPlugin) {
+    project.idea.module {
+        generatedSourceDirs += [file(generatedMainDir)]
+    }
+}
+
+project.tasks.clean.doFirst {
+    delete "${generatedSourcesDir}"
+}

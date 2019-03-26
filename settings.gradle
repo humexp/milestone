@@ -1,3 +1,5 @@
 rootProject.name = 'milestone'
+
 include 'milestone-web'
+include 'protos'
 
