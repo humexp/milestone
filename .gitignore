@@ -1,0 +1,10 @@
+/.gradle/
+/.idea/
+
+/milestone.iml
+
+build/
+out/
+
+*/build/
+*/out/
