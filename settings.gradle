@@ -3,4 +3,5 @@ rootProject.name = 'milestone'
 include 'milestone-web'
 include 'protos'
 include 'criteria'
+include 'milestone-db'
 
