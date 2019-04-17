@@ -5,6 +5,9 @@ import groovy.transform.CompileStatic
 import groovy.transform.ToString
 
 import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.ManyToMany
+import javax.persistence.OneToMany
 import javax.persistence.Table
 
 @Entity
@@ -13,9 +16,16 @@ import javax.persistence.Table
 @CompileStatic
 @ToString(includeNames = true, includeFields = true)
 class Task {
+    @Id
     String id
-    String parentTaskId
+    String parentTask
     String title
     String body
     Integer expectedEffort
+
+    @ManyToMany(mappedBy = 'tasks')
+    Set<User> users
+
+    @OneToMany(mappedBy='task')
+    Set<Effort> efforts
 }

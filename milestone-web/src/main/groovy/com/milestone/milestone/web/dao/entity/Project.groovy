@@ -5,6 +5,8 @@ import groovy.transform.CompileStatic
 import groovy.transform.ToString
 
 import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.ManyToMany
 import javax.persistence.Table
 
 @Entity
@@ -13,6 +15,10 @@ import javax.persistence.Table
 @CompileStatic
 @ToString(includeNames = true, includeFields = true)
 class Project {
+    @Id
     String id
     String name
+
+    @ManyToMany(mappedBy = 'projects')
+    Set<User> users
 }

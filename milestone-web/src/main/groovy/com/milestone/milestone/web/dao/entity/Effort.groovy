@@ -5,6 +5,9 @@ import groovy.transform.CompileStatic
 import groovy.transform.ToString
 
 import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
 import javax.persistence.Table
 
 @Entity
@@ -13,8 +16,13 @@ import javax.persistence.Table
 @CompileStatic
 @ToString(includeNames = true, includeFields = true)
 class Effort {
+    @Id
     String id
-    String taskId
+
+    @ManyToOne
+    @JoinColumn(name='id', insertable=false, updatable=false, nullable=false)
+    Task task
+
     Long date
     Integer effort
 }
