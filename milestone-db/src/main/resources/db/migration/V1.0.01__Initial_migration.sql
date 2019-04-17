@@ -5,6 +5,7 @@ CREATE TABLE "${schema}".projects (
 
 CREATE TABLE "${schema}".tasks (
   id                    VARCHAR(16) UNIQUE NOT NULL,
+  project               VARCHAR(16) REFERENCES "${schema}".projects (id) NOT NULL,
   parent_task           VARCHAR(16) REFERENCES "${schema}".tasks (id),
   title                 VARCHAR(255) NOT NULL,
   body                  VARCHAR(255),

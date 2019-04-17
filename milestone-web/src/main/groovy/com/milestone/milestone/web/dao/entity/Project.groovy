@@ -4,10 +4,7 @@ import groovy.transform.Canonical
 import groovy.transform.CompileStatic
 import groovy.transform.ToString
 
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.ManyToMany
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name = 'projects')
@@ -21,4 +18,7 @@ class Project {
 
     @ManyToMany(mappedBy = 'projects')
     Set<User> users
+
+    @OneToMany(mappedBy = 'project')
+    Set<Task> tasks
 }
