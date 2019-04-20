@@ -15,18 +15,4 @@ class User {
     @Id
     String id
     String name
-
-    @ManyToMany
-    @JoinTable(
-            name = 'user_to_project',
-            joinColumns = @JoinColumn(name = 'user_id'),
-            inverseJoinColumns = @JoinColumn(name = 'project_id'))
-    Set<Project> projects
-
-    @ManyToMany
-    @JoinTable(
-            name = 'user_to_task',
-            joinColumns = @JoinColumn(name = 'user_id'),
-            inverseJoinColumns = @JoinColumn(name = 'task_id'))
-    Set<Task> tasks
 }

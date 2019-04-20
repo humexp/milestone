@@ -18,11 +18,7 @@ import javax.persistence.Table
 class Effort {
     @Id
     String id
-
-    @ManyToOne
-    @JoinColumn(name='id', insertable=false, updatable=false, nullable=false)
-    Task task
-
+    String task
     Long date
     Integer effort
 }

@@ -20,19 +20,9 @@ import javax.persistence.Table
 class Task {
     @Id
     String id
-    // TODO: Implement parent-child task support
     String parentTask
     String title
     String body
     Integer expectedEffort
-
-    @ManyToOne
-    @JoinColumn(name='id', insertable=false, updatable=false, nullable=false)
-    Project project
-
-    @ManyToMany(mappedBy = 'tasks')
-    Set<User> users
-
-    @OneToMany(mappedBy='task')
-    Set<Effort> efforts
+    String project
 }

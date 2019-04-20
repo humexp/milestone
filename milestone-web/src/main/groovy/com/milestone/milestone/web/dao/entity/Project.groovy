@@ -15,10 +15,4 @@ class Project {
     @Id
     String id
     String name
-
-    @ManyToMany(mappedBy = 'projects')
-    Set<User> users
-
-    @OneToMany(mappedBy = 'project')
-    Set<Task> tasks
 }
