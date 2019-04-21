@@ -21,8 +21,10 @@ CREATE TABLE "${schema}".efforts (
 
 CREATE TABLE "${schema}".users (
   id              VARCHAR(16) UNIQUE NOT NULL,
-  login           VARCHAR(255) UNIQUE NOT NULL,
-  name            VARCHAR(255) NOT NULL
+  name            VARCHAR(255) NOT NULL,
+  email           VARCHAR(255),
+  auth_provider   VARCHAR(30) NOT NULL,
+  provider_id     VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE "${schema}".user_to_project (
