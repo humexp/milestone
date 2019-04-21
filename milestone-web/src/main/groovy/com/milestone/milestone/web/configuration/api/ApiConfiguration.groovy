@@ -8,6 +8,7 @@ import com.milestone.milestone.web.api.provider.CorsFilter
 import com.milestone.milestone.web.api.provider.ExceptionHandler
 import groovy.transform.CompileStatic
 import org.glassfish.jersey.server.ResourceConfig
+import org.glassfish.jersey.servlet.ServletProperties
 import org.springframework.context.annotation.Configuration
 
 @Configuration
@@ -17,6 +18,8 @@ class ApiConfiguration extends ResourceConfig {
         registerControllers()
         registerComponents()
         registerProviders()
+
+        property(ServletProperties.FILTER_FORWARD_ON_404, true)
     }
 
     private void registerControllers() {
@@ -25,7 +28,8 @@ class ApiConfiguration extends ResourceConfig {
     }
 
     private void registerComponents() {
-        register(ExceptionHandler.class)
+        // TODO: Provide exception handler
+        //register(ExceptionHandler.class)
         register(CorsFilter.class)
     }
 

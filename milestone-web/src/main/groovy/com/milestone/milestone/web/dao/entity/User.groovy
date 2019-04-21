@@ -24,6 +24,9 @@ class User {
     // TODO: If use multiple providers, can use one approved email for matching
     String email
 
+
+    String password
+
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

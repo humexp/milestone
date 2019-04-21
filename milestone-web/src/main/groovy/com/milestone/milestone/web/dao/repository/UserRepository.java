@@ -11,4 +11,6 @@ public interface UserRepository extends BasicRepository<User, String> {
     String entityType = "user";
 
     Optional<User> findByProviderId(String providerId);
+
+    Optional<User> findByEmail(String email);
 }
