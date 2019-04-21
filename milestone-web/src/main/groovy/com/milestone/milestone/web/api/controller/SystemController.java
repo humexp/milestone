@@ -1,5 +1,7 @@
 package com.milestone.milestone.web.api.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import javax.ws.rs.Consumes;
@@ -16,6 +18,9 @@ public class SystemController {
     @GET
     @Path("test")
     public String find() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+
         return "OK";
     }
 }
